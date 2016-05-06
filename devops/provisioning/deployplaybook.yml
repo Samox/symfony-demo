@@ -3,6 +3,15 @@
   - name: Deploy symfony-demo
     hosts: all
     user: ubuntu
+    sudo: true
     tasks:
-      -name: Pull git repo
-       git: repo=https://github.com/Samox/symfony-demo dest=/var/www/symfony-demo/current version={{branch}}
+      - name: Pull git repo
+        git: repo=https://github.com/Samox/symfony-demo dest=/var/www/symfony-demo/current version=master
+
+  - name: Run composer
+    hosts: all
+    user: ubuntu
+    sudo: true
+    tasks:
+      - name: Run composer
+        composer: command=install working_dir=/var/www/symfony-demo/current

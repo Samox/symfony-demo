@@ -10,3 +10,5 @@
         command: composer install
         args:
           chdir: /var/www/symfony-demo/current
+      - name: cache clear
+        command: rm -rf /var/www/symfony-demo/current/app/cache/

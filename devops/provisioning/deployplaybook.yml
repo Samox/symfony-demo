@@ -1,0 +1,8 @@
+---
+
+  - name: Deploy symfony-demo
+    hosts: all
+    user: ubuntu
+    tasks:
+      -name: Pull git repo
+       git: repo=https://github.com/Samox/symfony-demo dest=/var/www/symfony-demo/current version={{branch}}

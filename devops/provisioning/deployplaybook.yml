@@ -6,8 +6,7 @@
     tasks:
       - name: Pull git repo
         git: repo=https://github.com/Samox/symfony-demo dest=/var/www/symfony-demo/current version=master
-
-      - name: Run composer
-        - shell: composer installation
-          args:
-            chdir: /var/www/symfony-demo/current
+      - name: run composer
+        command: composer install
+        args:
+          chdir: /var/www/symfony-demo/current
